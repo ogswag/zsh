@@ -3,6 +3,6 @@ alias clang-format-allman='clang-format --style="{BasedOnStyle: LLVM, BreakBefor
 alias l="eza --sort=type -aF --hyperlink"
 alias v="vim"
 
-alias barashik="ssh user@10.190.130.40"
-alias kroshik="ssh user@10.190.130.51"
-alias yezhik="ssh user@10.190.130.101"
+alias barashik="ssh user@10.130.193.40"
+alias kroshik="ssh az@10.130.193.51"
+alias yezhik="ssh user@10.130.193.101"
