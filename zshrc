@@ -1,3 +1,5 @@
+os=$(uname)
+
 # Clone Moarram/headline if not already present
 if [[ ! -d ~/.config/zsh/headline ]]; then
     echo "Cloning Moarram/headline into ~/.config/zsh/headline..."
@@ -240,19 +242,13 @@ setopt extended_glob            # enable extended globbing
 setopt numeric_glob_sort        # sort numbered files numerically
 unsetopt case_glob              # make globbing case-sensitive
 
-export PATH="/usr/local/opt/jpeg/bin:$PATH"
+if [[ $os == "Linux" ]]; then
+    export LD_LIBRARY_PATH=/usr/local/lib
+elif [[ $os == "Darwin" ]]; then
+    export PATH="/usr/local/opt/jpeg/bin:$PATH"
+    export PATH="/usr/local/opt/llvm/bin:$PATH"
+    export PATH="$HOME/.local/bin:$PATH"
+else
+    echo "Unknown operating system."
+fi
 
-function cling() {
-    local folders=()
-    for arg in "$@"; do
-        if [ -d "$arg" ]; then
-            folders+=("$arg")
-        else [ -f "$arg" ]
-            folders+=("$(dirname "$arg")")
-        fi
-    done
-    open -a Cling "${folders[@]}"
-}
-export PATH="/usr/local/opt/llvm/bin:$PATH"
-
-export PATH="$HOME/.local/bin:$PATH"
