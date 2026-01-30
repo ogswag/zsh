@@ -1,0 +1,8 @@
+# alias l="eza --group-directories-first -lhU --time-style='long-iso'"
+alias clang-format-allman='clang-format --style="{BasedOnStyle: LLVM, BreakBeforeBraces: Allman, IndentWidth: 4, TabWidth: 4, UseTab: Never}" -i'
+alias l="eza --sort=type -aF --hyperlink"
+alias v="vim"
+
+alias barashik="ssh user@10.190.130.40"
+alias kroshik="ssh user@10.190.130.51"
+alias yezhik="ssh user@10.190.130.101"
