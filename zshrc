@@ -46,6 +46,7 @@ HL_ERR_MODE='detail'
 source ~/.zsh_aliases
 
 export EDITOR='vim'
+export SUDO_EDITOR='vim'
 export VISUAL='vim'
 
 mkcd () {
