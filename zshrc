@@ -1,9 +1,20 @@
 os=$(uname)
 
-source ~/.zsh_aliases
-source ~/.zsh/zsh_completion
-source ~/.zsh/zsh_plugins
-source ~/.zsh/zsh_prompt
+if [ -f ~/.zsh_aliases ]; then
+    source ~/.zsh_aliases
+fi
+
+if [ -f ~/.zsh/zsh_completion ]; then
+    source ~/.zsh/zsh_completion
+fi
+
+if [ -f ~/.zsh/zsh_plugins ]; then
+    source ~/.zsh/zsh_plugins
+fi
+
+if [ -f ~/.zsh/zsh_prompt ]; then
+    source ~/.zsh/zsh_prompt
+fi
 
 export EDITOR='vim'
 export SUDO_EDITOR='vim'
@@ -62,3 +73,8 @@ setopt pushdminus               # invert + and - meanings
 setopt extended_glob            # enable extended globbing
 setopt numeric_glob_sort        # sort numbered files numerically
 unsetopt case_glob              # make globbing case-sensitive
+
+# ===== Keybindings ===== {{{1
+bindkey '^[[1;5C' forward-word      # Ctrl+Right
+bindkey '^[[1;5D' backward-word     # Ctrl+Left
+
