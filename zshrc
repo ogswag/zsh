@@ -77,4 +77,4 @@ unsetopt case_glob              # make globbing case-sensitive
 # ===== Keybindings ===== {{{1
 bindkey '^[[1;5C' forward-word      # Ctrl+Right
 bindkey '^[[1;5D' backward-word     # Ctrl+Left
-
+bindkey '^H' vi-backward-kill-word
