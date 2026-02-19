@@ -1,20 +1,23 @@
 os=$(uname)
 
-if [ -f ~/.zsh_aliases ]; then
-    source ~/.zsh_aliases
-fi
-
-if [ -f ~/.zsh/zsh_completion ]; then
-    source ~/.zsh/zsh_completion
-fi
+# If not running interactively, don't do anything
+[[ -o interactive ]] || return
 
 if [ -f ~/.zsh/zsh_plugins ]; then
-    source ~/.zsh/zsh_plugins
+   source ~/.zsh/zsh_plugins
+fi
+if [ -f ~/.zsh/zsh_completion ]; then
+   source ~/.zsh/zsh_completion
+fi
+
+if [ -f ~/.zsh/zsh_aliases ]; then
+   source ~/.zsh/zsh_aliases
 fi
 
 if [ -f ~/.zsh/zsh_prompt ]; then
     source ~/.zsh/zsh_prompt
 fi
+
 
 export EDITOR='vim'
 export SUDO_EDITOR='vim'
@@ -25,6 +28,8 @@ mkcd () {
     cd "$1"
 }
 
+# Prevent duplicate PATH entries on re-source
+typeset -U PATH path
 if [[ $os == "Linux" ]]; then
     export LD_LIBRARY_PATH=/usr/local/lib
 elif [[ $os == "Darwin" ]]; then

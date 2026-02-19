@@ -1,8 +1,15 @@
 # alias l="eza --group-directories-first -lhU --time-style='long-iso'"
 alias clang-format-allman='clang-format --style="{BasedOnStyle: LLVM, BreakBeforeBraces: Allman, IndentWidth: 4, TabWidth: 4, UseTab: Never}" -i'
-alias l="eza --sort=type -aF --hyperlink"
-alias v="vim"
 
 alias barashek="ssh user@10.130.193.40"
 alias kroshik="ssh az@10.130.193.51"
 alias yezhik="ssh user@10.130.193.101"
+
+alias l='ls -ACF --group-directories-first'
+alias ll='ls -AChF --group-directories-first --time-style=long-iso'
+
+alias vim="nvim"
+alias ogvim="/usr/bin/vim"
+alias n="nvim"
+alias v="nvim"
+alias nnn='VISUAL=nvim EDITOR=nvim nnn'
