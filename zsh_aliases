@@ -5,8 +5,13 @@ alias barashek="ssh user@10.130.193.40"
 alias kroshik="ssh az@10.130.193.51"
 alias yezhik="ssh user@10.130.193.101"
 
-alias l='ls -ACF --group-directories-first'
-alias ll='ls -AChF --group-directories-first --time-style=long-iso'
+if [[ $os == "Linux" ]]; then
+    alias l='ls -ACF --group-directories-first'
+    alias ll='ls -AChlF --group-directories-first --time-style=long-iso'
+elif [[ $os == "Darwin" ]]; then
+    alias l='eza -AF --group-directories-first'
+    alias ll='eza -lAhF --group-directories-first --time-style=long-iso'
+fi
 
 alias vim="nvim"
 alias ogvim="/usr/bin/vim"
